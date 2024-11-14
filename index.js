@@ -1,9 +1,15 @@
 window.addEventListener(`load`, init);
-input.addeventlistener("input", function (e) {
-    if (e.input === words) {
-        console.log(this.value)
-    }
-});
+
+// available difficultys
+const difficulty = {
+    easy: = 5
+    medium: = 3
+    hard: = 2
+}
+
+//change level
+const currentlevel = difficulty.easy;
+
 let time = 5;
 let score = 0;
 let isplaying;
@@ -42,6 +48,8 @@ const words = [
 ];
 // initilize game
 function init() {
+    //show number of seconds in UI
+    seconds.innerHTML = currentlevel
     // loads word form array
     showWord(words);
     //start match word input
@@ -55,7 +63,7 @@ function init() {
 function newgame() {
     if (matchword) {
       isplaying = true;
-      time = 6;
+      time = currentlevel + 1;
       showWord(words);
       wordinput.value = "";
       score++;
