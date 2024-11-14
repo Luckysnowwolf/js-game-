@@ -34,14 +34,11 @@ const words = [
     if( timer === 0){
         clearInterval(gameover)
     }
-  document.getElementById(words);
-  if (words === yourtypedword){ 
-    consoel.log("corect")
-  } else (gameover)
-  document.getElementById(text);
+  document.getElementById(words).addeventlistener(){};
+  document.getElementById(text).addeventlistener(){};
   
   
-  const difficultylevel = document.getelementbyid(difficulty)
+  const difficultylevel = document.getelementbyid(difficulty).addeventlistener(){};
   if (difficultyleveleasy){
     console.log("you have picked easy")
   } else if (difficultylevelmedium){
@@ -49,18 +46,17 @@ const words = [
   } else if(difficultylevelhard){
     consoel.log("you have picked hard")
   }
-  document.getelementbyvalue(easy);
+  document.getelementbyvalue(easy).addeventlistener(){};
   {}
-  document.getelementbyvalue(medium);
+  document.getelementbyvalue(medium).addeventlistener(){};
   {}
-  document.getelementbyvalue(hard);
+  document.getelementbyvalue(hard).addeventlistener(){};
   {}
-  document.getelementbyid(time);
-  if (thetimer > 0)
+  document.getelementbyid(time).addeventlistener(){};
+  if (timer > 0)
     console.log()
-  else (thetimer == 0)
+  else (timer == 0)
   console.log();
-  document.getelementbyid(score);
-  {}
+  document.getelementbyid(score).addeventlistener(){};
   const gameover = consoel.log(`this is your end score "  " ${score}`);
   }
