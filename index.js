@@ -22,9 +22,18 @@ const words = [
     "loving",
     "north",
   ];
-  const Time = 30 * 1000;
+  input.addeventlistener("input", function (e) {
+    if (e.input === words){
+        console.log(this.value)
+    }
+  });
+  let timer = 30 * 1000;
+  setInterval(newgame, 30 * 1000);
   function newgame(){
-    
+    console.log(timer++);
+    if( timer === 0){
+        clearInterval(gameover)
+    }
   document.getElementById(words);
   if (words === yourtypedword){ 
     consoel.log("corect")
