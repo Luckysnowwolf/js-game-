@@ -28,6 +28,7 @@ const word = document.getElementById("word")
 let randomWord;
 let scoreDisplay = 0
 let timeDisplay = 10
+let GameOver = false;
 
 addwordtoDom()
 function addwordtoDom(){
@@ -45,21 +46,22 @@ text.addEventListener("input",(e) => {
         addwordtoDom();
         updatescore();
         e.target.value = ""
+        timeDisplay = timeDisplay + 5;
     } 
 })
 
 
     var Timer = setInterval(function(){
 
-        if(timeDisplay === 0){
-          clearInterval(timeDisplay);
-          console.log("game over")
+        if (timeDisplay === 0){
+            clearInterval(timeInterval); 
+            GameOver = true;
         } else {
-            timeDisplay--;
+            timeDisplay --;
+            time.innerHTML = timeDisplay;
         }
         document.getElementById("time").innerHTML =  (timeDisplay / 10).toFixed(2);
         time.innerHTML = timeDisplay
       }, 1000);
 
-
-
+timeInterval = setInterval(updateTime, 1000)

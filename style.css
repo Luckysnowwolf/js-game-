@@ -131,3 +131,9 @@ input {
   height: 100%;
   z-index: 1;
 }
+.GameOver{
+  size: 75px;
+  color: #fefefe;
+  text-align: center;
+  background-color: black;
+}
