@@ -29,20 +29,20 @@ const GameOver = document.getElementById("end-game-container")
 let randomWord;
 let scoreDisplay = 0
 let timeDisplay = 10
-let Gameover = false;
 
 addwordtoDom()
 function addwordtoDom(){
     randomWord = words[Math.floor(Math.random() * words.length)]
     word.innerHTML = randomWord
 }
-function GameOverScreen(){
-GameOver.innerHTML
-}
 
 function updatescore(){
     scoreDisplay ++ 
     score.innerHTML = scoreDisplay 
+}
+function GameOverScreen(){
+    GameOver.style.display = "flex";
+    GameOver.innerHTML = `<h1>Time ran out!</h1> <p>Your final score is ${scoreDisplay}</p> <button onClick="location.reload()">Reload</button>`
 }
 
 text.addEventListener("input",(e) => {
@@ -51,15 +51,14 @@ text.addEventListener("input",(e) => {
         updatescore();
         e.target.value = ""
         timeDisplay = timeDisplay + 5;
-        GameOverScreen();
     } 
 })
 
 
-    var Timer = setInterval(() => { 
+    let Timer = setInterval(() => { 
         if (timeDisplay === 0){
-            clearInterval(timeInterval); 
-            Gameover = true;
+            clearInterval(Timer);
+            GameOverScreen();
             console.log("Game Over");
         } else {
             timeDisplay --;
