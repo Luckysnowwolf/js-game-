@@ -24,16 +24,20 @@ const time = document.getElementById("time")
 const score = document.getElementById("score")
 const text = document.getElementById("text")
 const word = document.getElementById("word")
+const GameOver = document.getElementById("end-game-container")
 
 let randomWord;
 let scoreDisplay = 0
 let timeDisplay = 10
-let GameOver = false;
+let Gameover = false;
 
 addwordtoDom()
 function addwordtoDom(){
     randomWord = words[Math.floor(Math.random() * words.length)]
     word.innerHTML = randomWord
+}
+function GameOverScreen(){
+GameOver.innerHTML
 }
 
 function updatescore(){
@@ -47,21 +51,18 @@ text.addEventListener("input",(e) => {
         updatescore();
         e.target.value = ""
         timeDisplay = timeDisplay + 5;
+        GameOverScreen();
     } 
 })
 
 
-    var Timer = setInterval(function(){
-
+    var Timer = setInterval(() => { 
         if (timeDisplay === 0){
             clearInterval(timeInterval); 
-            GameOver = true;
+            Gameover = true;
+            console.log("Game Over");
         } else {
             timeDisplay --;
             time.innerHTML = timeDisplay;
         }
-        document.getElementById("time").innerHTML =  (timeDisplay / 10).toFixed(2);
-        time.innerHTML = timeDisplay
       }, 1000);
-
-timeInterval = setInterval(updateTime, 1000)
